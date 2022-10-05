@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ModernTODO"
 include ':app'
+include ':core:ui'
+include ':core:ui'

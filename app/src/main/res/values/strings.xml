@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ModernTODO</string>
     <string name="add_task">Add Task…</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="date">Date</string>
 </resources>

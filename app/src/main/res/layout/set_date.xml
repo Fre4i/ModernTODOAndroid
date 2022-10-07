@@ -8,22 +8,24 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/date"
-        android:textColor="black"
+        android:textColor=""
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/add_date"
-        app:layout_constraintStart_toStartOf="@+id/add_date" />
+        app:layout_constraintStart_toStartOf="@+id/add_date"
+        app:layout_constraintTop_toTopOf="parent" />
     <EditText
         android:id="@+id/add_date"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:autofillHints=""
         android:background="@drawable/date_picker"
-        android:hint="@string/dd_mm_yyyy"
+        android:hint="@string/dd_mm_yy"
         android:inputType="date"
         android:maxLength="16"
         android:maxLines="4"
@@ -35,9 +37,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlSymmetry" />
-
     <Button
-        android:id="@+id/add_time_button"
+        android:id="@+id/add_date_button"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
@@ -45,5 +46,49 @@
         app:layout_constraintBottom_toBottomOf="@+id/add_date"
         app:layout_constraintEnd_toEndOf="@+id/add_date"
         app:layout_constraintTop_toTopOf="@+id/add_date"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/start_time"
+        android:textColor="black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/add_time"
+        app:layout_constraintStart_toStartOf="@+id/add_time"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/add_time"
+        android:layout_width="160dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:background="@drawable/date_picker"
+        android:gravity="center_vertical"
+        android:hint="@string/_12_00"
+        android:inputType="date"
+        android:maxLength="16"
+        android:maxLines="4"
+        android:paddingStart="16dp"
+        android:textColorHint="transparent"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+    <Button
+        android:id="@+id/add_time_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_schedule_48"
+        app:layout_constraintBottom_toBottomOf="@+id/add_date"
+        app:layout_constraintEnd_toEndOf="@+id/add_time"
+        app:layout_constraintTop_toTopOf="@+id/add_time"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

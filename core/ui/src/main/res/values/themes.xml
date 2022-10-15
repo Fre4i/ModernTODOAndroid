@@ -13,13 +13,14 @@
         <!--<item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
         <!-- Customize your theme here. -->
         <item name="android:buttonStyle">@style/Widget.ModernTODO.Button</item>
+        <!-- Custom Toolbar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Base.Theme.ModernTODO" parent="Base.V23.Theme.ModernTODO" />
 
     <style name="Theme.ModernTODO" parent="Base.Theme.ModernTODO" />
-
-
 
 
 </resources>

@@ -9,4 +9,11 @@
         <item name="android:minHeight">0dp</item>
         <item name="android:minWidth">0dp</item>
     </style>
+
+    <style name="Widget.ModernTODO.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:actionBarSize</item>
+        <item name="android:background">@color/background</item>
+        <item name="contentInsetStart">0dp</item>
+    </style>
 </resources>

@@ -9,4 +9,6 @@
     <string name="add_ending_time">Add end time</string>
     <string name="desc_icon_time">icon time</string>
     <string name="desc_icon_calendar">icon calendar</string>
+    <string name="your_tasks">Your tasks</string>
+    <string name="time">Time</string>
 </resources>

@@ -6,8 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/planItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         app:cardCornerRadius="10dp"
         app:cardUseCompatPadding="true"
         app:contentPadding="8dp"
@@ -18,10 +19,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/planHeader"
                 style="@style/TextAppearance.ModernTODO.ListItemTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,26 +31,31 @@
                 tools:text="Plan bebra" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/planDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:maxLines="4"
+                android:layout_marginBottom="8dp"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintBottom_toTopOf="@+id/cardView3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/planHeader"
+                app:layout_constraintVertical_bias="0"
                 tools:text="Выпить таблетки от деменции и шизофрении" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:foreground="@drawable/stroke_card_view"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
                 app:cardPreventCornerOverlap="true"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5"
-                android:foreground="@drawable/stroke_card_view">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -57,9 +63,11 @@
                     android:padding="4dp">
 
                     <TextView
+                        android:id="@+id/planDate"
                         style="@style/TextAppearance.ModernTODO.ListItem"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

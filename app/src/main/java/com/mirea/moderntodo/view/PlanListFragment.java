@@ -1,52 +1,57 @@
 package com.mirea.moderntodo.view;
 
-import android.app.ActionBar;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toolbar;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.mirea.moderntodo.R;
 import com.mirea.moderntodo.adapters.PlanListAdapter;
-import com.mirea.moderntodo.items.ItemPlan;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.mirea.moderntodo.databinding.FragmentPlanListBinding;
+import com.mirea.moderntodo.viewmodels.PlanListFragmentModel;
 
 public class PlanListFragment extends Fragment {
     public PlanListFragment() {
         super(R.layout.fragment_plan_list);
     }
 
-    private RecyclerView planList;
+    private FragmentPlanListBinding binding;
 
-    private final List<ItemPlan> list = new ArrayList<>();
+    private PlanListFragmentModel viewModel;
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentPlanListBinding.inflate(inflater, container, false);
+        viewModel = new ViewModelProvider(this).get(PlanListFragmentModel.class);
+        return binding.getRoot();
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        int someInt = requireArguments().getInt("some_int");
         super.onViewCreated(view, savedInstanceState);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
-        planList = view.findViewById(R.id.planList);
-        planList.setLayoutManager(gridLayoutManager);
-        setList();
-        PlanListAdapter adapter = new PlanListAdapter(list);
-        planList.setAdapter(adapter);
+        viewModel.init();
+
+        // recyclerview
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        binding.planList.setLayoutManager(gridLayoutManager);
+        PlanListAdapter adapter = new PlanListAdapter(viewModel.getListItemPlan().getValue());
+        binding.planList.setAdapter(adapter);
+//        viewModel.getListItemPlan().observe(getViewLifecycleOwner(), itemPlans -> adapter.notifyAll());
+
     }
 
-    private void setList() {
-        list.add(new ItemPlan("Plan bebra", "Выпить таблетки от деменции и шизофрении\nВыпить таблетки от деменции и шизофрени\nВыпить таблетки от деменции и шизофрении\nВыпить таблетки от деменции и шизофрении", "Today", "19:00"));
-        list.add(new ItemPlan("Plan bebra", "desc", "Today", "19:00"));
-        list.add(new ItemPlan("Plan bebra", "desc", "Today", "19:00"));
-        list.add(new ItemPlan("Plan bebra", "desc", "Today", "19:00"));
-        list.add(new ItemPlan("Plan bebra", "desc", "Today", "19:00"));
-    }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }
